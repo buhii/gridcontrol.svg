@@ -59,18 +59,24 @@
                         mx,
                         my
                     );
-                    color = (Math.random() > 0.5) ? "#cfc": "#ccf";
                     el.data("coord", [i, j]);
-                    el.data("color", color);
-                    el.attr({fill: color});
+                    el.data("data", 0);
+                    if (el.data("data") == 0) {
+                        el.attr({fill: "#aaa"});
+                    } else {
+                        el.attr({fill: "#ddd"});
+                    }
                     el.click(function(e) {
-                        console.log(this.data("coord"));
+                        var newData = this.data("data") == 0 ? 1: 0
+                        this.data("data", newData);
                     });
                     el.mouseover(function(e) {
+                        settings.changePos(this.data("coord"));
                         this.attr({fill: "#f00"});
                     });
                     el.mouseout(function(e) {
-                        this.attr({fill: this.data("color")});
+                        var c = this.data("data") == 0 ? "#aaa": "#ddd";
+                        this.animate({fill: c}, 500);
                     });
                 }
             }
