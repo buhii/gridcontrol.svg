@@ -1,0 +1,46 @@
+body {
+    padding-top: 20px;
+    padding-bottom: 20px;
+    background-color: #eee;
+}
+
+h1 {
+    padding-bottom: 10px;
+}
+
+h2 {
+    padding-top: 10px;
+}
+
+h3 {
+    color: #888;
+    font-size: 20px; 
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+p {
+    color: #777;
+}
+
+.indicator {
+    color: #c78;
+    font-size: small;
+}
+
+/* Customize container */
+@media (min-width: 768px) {
+    .container {
+        max-width: 730px;
+    }
+}
+
+.signature {
+    padding-top: 30px;
+    text-align: center;
+    color: #aaa;
+}
+
+.result {
+    color: #79a;
+}

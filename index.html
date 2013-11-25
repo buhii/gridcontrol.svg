@@ -1,0 +1,51 @@
+<!DOCTYPE HTML>
+<html lang="en">
+  <head>
+    <title>gridcontrol.svg</title>
+    <link rel="stylesheet" href="media/bootstrap.min.css" />
+    <link rel="stylesheet" href="media/jquery-ui.slider.css" />
+    <link rel="stylesheet" href="media/base.css" />
+  </head>
+  <body>
+
+    <!--
+    <a href="https://github.com/buhii/gridcontrol.js">
+      <img style="position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_gray_6d6d6d.png" alt="Fork me on GitHub">
+    </a>
+    -->
+    
+    <div class="container">
+
+      <h1>gridcontrol.svg</h1>
+      <p>You can create a simple button array with Snap.svg. Please click, touch or drag the below box:</p>
+      <p id="intro-pos" class="indicator">pos:</p>
+      <p id="intro-data" class="indicator">data:</p>
+      <svg id="intro"></canvas>
+
+      <p class="signature">gridcontrol.svg by <a href="http://www.buhii.org/">Takahiro Kamatani</a> 2013</p>
+    </div>
+
+    <!-- script here -->
+    <script src="media/jquery.min.js"></script>
+    <script src="media/jquery-ui.slider.js"></script>
+    <script src="media/jquery.ui.touch-punch.min.js"></script>
+    <script src="media/snap.svg-min.js"></script>
+    <script src="media/gridcontrol.svg.js"></script>
+    <script>
+      // intro
+      var gcIntro = $("#intro").gridControlSVG({
+        kind: "hex",
+        width: 5,
+        height: 5,
+        gridSize: 32,   // px
+        borderWidth: 2,
+        changePos: function(pos) {
+          $("#intro-pos").text("pos: " + pos);
+        },
+        changeData: function(data) {
+          $("#intro-data").text("data: " + data.join(""));
+        },
+      });
+    </script>
+  </body>
+</html>
