@@ -57,7 +57,10 @@
                         my + 2 * h,
                         // p6
                         mx,
-                        my
+                        my,
+                        // return to p1.
+                        mx + w,
+                        my - h
                     );
                     el.data("coord", [i, j]);
                     el.data("data", 0);
@@ -67,16 +70,17 @@
                         el.attr({fill: "#ddd"});
                     }
                     el.click(function(e) {
-                        var newData = this.data("data") == 0 ? 1: 0
+                        var newData = this.data("data") == 0 ? 1: 0;
                         this.data("data", newData);
+                        var c = newData == 0 ? "#aaa": "#ddd";
+                        this.attr({fill: c});
                     });
                     el.mouseover(function(e) {
                         settings.changePos(this.data("coord"));
-                        this.attr({fill: "#f00"});
+                        this.attr({stroke: "#f00", strokeWidth: 1});
                     });
                     el.mouseout(function(e) {
-                        var c = this.data("data") == 0 ? "#aaa": "#ddd";
-                        this.animate({fill: c}, 500);
+                        this.animate({strokeWidth: 0}, 500);
                     });
                 }
             }
